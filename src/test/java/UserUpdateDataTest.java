@@ -4,7 +4,6 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.ValidatableResponse;
 import model.User;
-import model.UserCredentials;
 import model.UserGenerator;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
@@ -16,7 +15,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class UserUpdateDataTest {
     private UserSteps userSteps;
     private User user;
-    private UserCredentials userCredentials;
     private String accessToken;
 
     @Before

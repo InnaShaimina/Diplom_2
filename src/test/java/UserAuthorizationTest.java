@@ -15,7 +15,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 public class UserAuthorizationTest {
     private UserSteps userSteps;
     private User user;
-    private UserCredentials userCredentials;
     private String accessToken;
 
     @Before
@@ -41,7 +40,7 @@ public class UserAuthorizationTest {
     @Test
     @DisplayName("It is possible to login as existing user")
     public void loginAsUserWithValidDataIsPossibleCheck() {
-        userSteps.loginUser(userCredentials.from(user))
+        userSteps.loginUser(UserCredentials.from(user))
                 .assertThat()
                 .statusCode(HTTP_OK)
                 .and()
@@ -52,7 +51,7 @@ public class UserAuthorizationTest {
     @DisplayName("It is impossible to login as non existing user")
     public void loginAsUserWithInvalidDataIsImpossibleCheck() {
         user.setEmail("nobody@nobody.ru");
-        userSteps.loginUser(userCredentials.from(user))
+        userSteps.loginUser(UserCredentials.from(user))
                 .assertThat()
                 .statusCode(HTTP_UNAUTHORIZED)
                 .and()
